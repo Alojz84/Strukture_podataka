@@ -11,13 +11,10 @@ typedef struct student {
 	double points;
 }Student;
 
-/*int readnumberofeowsinfile()
+int ReadNumberOfRowsInFile()
 {
+	int counter = 0;
 
-}*/
-
-int main() {
-	int noRows=0;
 	FILE* filePointer = NULL;
 	char buffer[MAX_LINE] = { 0 };
 
@@ -30,11 +27,26 @@ int main() {
 	while (!feof(filePointer))
 	{
 		fgets(buffer, MAX_LINE, filePointer);
-		noRows++;
+		counter++;
 	}
-	printf("%d", noRows);
+
+	printf("%d", counter);
 
 	fclose(filePointer);
 
-	return EXIT_SUCCESS;
+	return counter;
+
+
+}
+
+int main() {
+
+	int noRows = 0;
+	Student* students = NULL;
+
+	noRows = ReadNumberOfRowsInFile();
+
+
+	return 0;
+	
 }
